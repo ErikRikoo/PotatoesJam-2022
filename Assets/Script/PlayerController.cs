@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
      * Je crois que c'est déjà /seconde donc pas besoin du Time.deltaTime
      */
     
-    public void Movement(InputValue _value)
+    public void Movement(InputAction.CallbackContext _context)
     {
-        Vector2 movementInput = _value.Get<Vector2>();
+        Vector2 movementInput = _context.ReadValue<Vector2>();
         Debug.Log("Déplacement demandé: " + movementInput);
         // Cet événement n'est pas appelé tout le temps
         // Seulement quand "_value.Get<Vector2>()" change
