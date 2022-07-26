@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &48143239 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1150141389096195741, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
-  m_PrefabInstance: {fileID: 910074529}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &418376761
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,27 +365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150141387542593898, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000003237359
+      value: -0.000000032373563
       objectReference: {fileID: 0}
     - target: {fileID: 1150141387542593898, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000002079064
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150141387542593899, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 48143239}
-    - target: {fileID: 1150141387542593899, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 1.6120778
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150141388683502493, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
-      propertyPath: m_TrackedObjectOffset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150141388683502494, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 21.86
+      value: 0.000000020790626
       objectReference: {fileID: 0}
     - target: {fileID: 1150141389096195741, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
       propertyPath: m_LocalPosition.x
@@ -420,10 +399,6 @@ PrefabInstance:
       propertyPath: m_Targets.Array.data[0].weight
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1150141389107888395, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
-      propertyPath: field of view
-      value: 11.874604
-      objectReference: {fileID: 0}
     - target: {fileID: 1150141389107888396, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.51
@@ -446,11 +421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150141389107888396, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000003237359
+      value: -0.000000032373563
       objectReference: {fileID: 0}
     - target: {fileID: 1150141389107888396, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000002079064
+      value: 0.000000020790626
       objectReference: {fileID: 0}
     - target: {fileID: 1695213150374536721, guid: 718931bd6953ad44fa1d023d3e778045, type: 3}
       propertyPath: m_Name
