@@ -1,8 +1,31 @@
+using System;
+using GMTK.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Min(0)]
+    [SerializeField] private float m_Damping = 1;
+    
+    [SerializeField] private float m_Speed;
+    
+    private Vector3 Target;
+    private Vector3 RealSpeed;
+    private Rigidbody m_Rigidbody;
+
+    private void Awake()
+    {
+        m_Rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        RealSpeed = Vector3.LerpUnclamped(RealSpeed, Target, m_Damping * Time.deltaTime);
+        m_Rigidbody.velocity = RealSpeed;
+
+    }
+
     /**
      * Tout est configuré sur le player, tu as:
      * - Capsule COllider pour les collisions, je l'ai mis par défaut mais fais ce que tu veux ;)
@@ -23,10 +46,8 @@ public class PlayerController : MonoBehaviour
     public void Movement(InputAction.CallbackContext _context)
     {
         Vector2 movementInput = _context.ReadValue<Vector2>();
-        Debug.Log("Déplacement demandé: " + movementInput);
-        // Cet événement n'est pas appelé tout le temps
-        // Seulement quand "_value.Get<Vector2>()" change
-        // Il faut donc stocker cette valeur et opérer les changements dans le Update
+
+        Target = (movementInput * m_Speed).X0Y();
     }
 
     public void Action(InputAction.CallbackContext _context)
