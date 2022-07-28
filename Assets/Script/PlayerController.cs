@@ -1,4 +1,5 @@
 using System;
+using NaughtyAttributes;
 using Script.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,21 +10,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_Damping = 1;
     
     [SerializeField] private float m_Speed;
+
+    [SerializeField] private Transform m_Visual;
+    [SerializeField] private Animator m_Animator;
+    [AnimatorParam("m_Animator")]
+    [SerializeField] private int m_SpeedAnimParameter;
+    
     
     private Vector3 Target;
     private Vector3 RealSpeed;
     private Rigidbody m_Rigidbody;
+    private float m_InverseSpeed;
 
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_InverseSpeed = 1 / m_Speed;
     }
 
     private void FixedUpdate()
     {
         RealSpeed = Vector3.LerpUnclamped(RealSpeed, Target, m_Damping * Time.deltaTime);
         m_Rigidbody.velocity = RealSpeed;
-
+        
+        m_Animator.SetFloat(m_SpeedAnimParameter, RealSpeed.magnitude * m_InverseSpeed);
+        m_Visual.LookAt(m_Visual.position + RealSpeed);
     }
 
     /**
