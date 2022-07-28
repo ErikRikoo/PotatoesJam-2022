@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GMTK.Utilities.Extensions
+namespace Script.Utilities.Extensions
 {
     public static class VectorExtension
     {

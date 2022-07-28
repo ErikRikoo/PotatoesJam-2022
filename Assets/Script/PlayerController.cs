@@ -1,5 +1,5 @@
 using System;
-using GMTK.Utilities.Extensions;
+using Script.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
