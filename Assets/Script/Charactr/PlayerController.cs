@@ -33,7 +33,8 @@ namespace Script.Charactr
 
         public void ChangeSkin(InputAction.CallbackContext _context)
         {
-            int direction = (int) Mathf.Sign(_context.ReadValue<Vector2>().x);
+            float x = _context.ReadValue<Vector2>().x;
+            int direction = x == 0? 0:(int) Mathf.Sign(x);
             CurrentSkinIndex += direction;
         }
 

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using Script.Charactr;
 using UI;
 using UnityAtoms.BaseAtoms;
 using UnityEditor;
@@ -16,6 +18,8 @@ namespace Lobby
     
     public class LobbyManager : MonoBehaviour
     {
+        [SerializeField] private CinemachineTargetGroup m_TargetGroup;
+
         [SerializeField] private VoidEvent m_GameStarted;
         
         [SerializeField] private TextFader m_TextDisplay;
@@ -136,6 +140,8 @@ namespace Lobby
             {
                 return;
             }
+            
+            m_TargetGroup?.AddMember(lobbyPlayer.transform, 1, 2);
 
             m_Players.Add(new PlayerEntry
             {
@@ -147,6 +153,9 @@ namespace Lobby
             lobbyPlayer.transform.forward = m_SpawnPositions[m_PlayerCount].forward;
             lobbyPlayer.BindToHandler(this);
             StartCoroutine(c_EnablePlayer(_input));
+
+            _input.GetComponent<LivingState>().IsAlive = PlayerCount == 0;
+            
             ++PlayerCount;
         }
 

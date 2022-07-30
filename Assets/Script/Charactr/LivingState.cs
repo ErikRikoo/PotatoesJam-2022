@@ -17,6 +17,15 @@ namespace Script.Charactr
     {
         [SerializeField] private bool m_IsAlive = true;
 
+        public bool IsAlive
+        {
+            set
+            {
+                m_IsAlive = value;
+                Init();
+            }
+        }
+
         [Header("Materials")]
         [SerializeField] private MaterialPair m_SkinMaterials;
         [SerializeField] private MaterialPair m_ClothesMaterials;
@@ -28,6 +37,11 @@ namespace Script.Charactr
         [SerializeField] private Renderer[] m_Hair;
 
         private void Start()
+        {
+            Init();
+        }
+
+        private void Init()
         {
             AssignToAllRenderer(m_Skins, m_SkinMaterials);
             AssignToAllRenderer(m_Clothes, m_ClothesMaterials);

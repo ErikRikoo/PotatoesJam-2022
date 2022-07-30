@@ -11,7 +11,6 @@ namespace Lobby
 
         [SerializeField] private UnityEvent<bool> m_ReadynessChanged;
         
-        
         private Vector3 m_OriginalScale;
         private LobbyManager m_LobbyManager;
         private bool m_IsReady;
@@ -39,6 +38,7 @@ namespace Lobby
             }
             
             ++m_LobbyManager.PlayerReadyCount;
+            transform.localScale *= 1.25f;
            // m_Animator.SetTrigger("ReadyChanged");
             m_ReadynessChanged?.Invoke(true);
             //transform.localScale *= 1.1f;
@@ -58,6 +58,8 @@ namespace Lobby
             }
             
             --m_LobbyManager.PlayerReadyCount;
+            transform.localScale *= 0.8f;
+
             //m_Animator.SetTrigger("ReadyChanged");
             m_ReadynessChanged?.Invoke(false);
             transform.localScale = m_OriginalScale;
